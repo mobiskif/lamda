@@ -1,0 +1,55 @@
+		Runnable r = () -> {
+			while (checkBox.isSelected()) 
+				try {
+					Thread.sleep(1*1000);
+					labelTime.setText(ZonedDateTime.now().toLocalTime().toString());
+				} 
+				catch (InterruptedException e) {e.printStackTrace();}
+		};
+		ActionListener al = (ActionEvent ae) -> new Thread(r).start(); 
+		checkBox.addActionListener(al);
+
+		
+				// controller = contr;
+
+		int temp_mes[] = { 21, 26, 32, 24, 28, 43, 35, 29, 23, 19, 21, 11 };
+		Runnable a = () -> {
+			for (int i = 0; i < temp_mes.length; i++)
+				System.out.println(temp_mes[i]);
+		};
+		a.run();
+
+		List<Integer> list = Arrays.asList(1, 2, 3);
+		list.forEach(System.out::println);
+
+		Map<Integer, String> m = Collections.unmodifiableMap(new HashMap<Integer, String>() {
+			{
+				put(0, "zero");
+				put(1, "one");
+				put(2, "two");
+				put(3, "three");
+				put(4, "four");
+				put(5, "five");
+				put(6, "six");
+				put(7, "seven");
+				put(8, "eight");
+				put(9, "nine");
+				put(10, "ten");
+				put(11, "eleven");
+				put(12, "twelve");
+			}
+		});
+		m.forEach((k, v) -> {
+			System.out.println(v);
+		});
+
+		Collection coll = new Vector();
+		coll.add("1");
+		coll.add("2");
+		coll.add("6");
+		Object a1 = Collections.min(coll);
+		System.out.println(a1);
+		for (Object o : coll)
+			System.out.println("Item:" + o);
+
+		
